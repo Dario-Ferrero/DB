@@ -22,8 +22,8 @@ create table Notizia (
 	data_pubblicazione date not null,
 	primary key (titolo, autore),
 	foreign key (autore) references Utente(indirizzo_mail)
-	on update cascade
-	on delete set default
+		on update cascade
+		on delete set default
 );
 
 create table Contenuto (
@@ -223,3 +223,4 @@ create table Proiezione (
 		on update cascade
 		on delete cascade
 );
+
