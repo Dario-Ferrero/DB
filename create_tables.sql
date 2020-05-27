@@ -11,6 +11,7 @@ create table Star (
 	luogo_di_nascita varchar(255), 
 	data_nascita date, 
 	nome_cognome varchar(255),
+	biografia varchar(5000),
 	primary key (nome_cognome, data_nascita)
 );
 
