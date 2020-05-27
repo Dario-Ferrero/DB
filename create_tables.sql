@@ -15,7 +15,7 @@ create table Star (
 );
 
 create table Notizia (
-	corpo text,
+	corpo varchar(5000),
 	foto bytea,
 	titolo varchar(255),
 	autore varchar(255) default 'Redazione ComingSoon',
@@ -27,7 +27,7 @@ create table Notizia (
 );
 
 create table Contenuto (
-	trama text,
+	trama varchar(5000),
 	paese varchar(255),
 	genere varchar(255),
 	distribuzione varchar(255),
@@ -125,7 +125,7 @@ create table DirezioneEpisodio (
 	episodio varchar(255),
 	stagione varchar(255),
 	serie varchar(255),
-	anno_serie varchar(255),
+	anno_serie smallint,
 	primary key (regista, data_nascita_regista, episodio, stagione, serie, anno_serie),
 	foreign key(regista, data_nascita_regista) references Star(nome_cognome, data_nascita)
 		on update cascade
@@ -157,7 +157,7 @@ create table Votazione (
 	foreign key (utente) references Utente(indirizzo_mail)
 		on update cascade
 		on delete cascade,
-	foreign key (titolo, anno_contenuto) references Contenuto(titolo, anno)
+	foreign key (contenuto, anno_contenuto) references Contenuto(titolo, anno)
 		on update cascade
 		on delete cascade
 );
