@@ -19,7 +19,7 @@ create table Notizia (
 	corpo varchar(5000),
 	foto bytea,
 	titolo varchar(255),
-	autore varchar(255) default 'Redazione ComingSoon',
+	autore varchar(255) default 'redazione@comingsoon.it',
 	data_pubblicazione date not null,
 	primary key (titolo, autore),
 	foreign key (autore) references Utente(indirizzo_mail)
