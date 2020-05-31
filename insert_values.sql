@@ -10,21 +10,21 @@ insert into Contenuto values ('Trama Black Mirror', 'USA', 'Drammatico', 'Netfli
 insert into Contenuto values ('Trama Modern family', 'USA', 'Commedia', 'FOX', 2009, 'Modern family', null, null);
 
 -- Episodio ()
-insert into Episodio values (62, '15 milioni di celebrità', 'Stagione 1', 'Black Mirror', 2015);
-insert into Episodio values (49, 'Ricordi pericolosi', 'Stagione 1', 'Black Mirror', 2015);
-insert into Episodio values (52, 'Zitto e balla', 'Stagione 3', 'Black Mirror', 2017);
-insert into Episodio values (22, 'Il lancio della zucca', 'Stagione 9', 'Modern family', 2018);
+insert into Episodio values (62, '15 milioni di celebrità', 'Stagione 1', 'Black Mirror', 2013);
+insert into Episodio values (49, 'Ricordi pericolosi', 'Stagione 1', 'Black Mirror', 2013);
+insert into Episodio values (52, 'Zitto e balla', 'Stagione 3', 'Black Mirror', 2013);
+insert into Episodio values (22, 'Il lancio della zucca', 'Stagione 9', 'Modern family', 2009);
 
 -- Utente ()
-insert into Utente values (2020-05-24, 'Polino08', 'paolo.lino@outlook.it', 'LinoPaolo08');
-insert into Utente values (2019-01-12, 'MarcoMonte', 'marco.ricco@gmail.it', 'Cashinback');
-insert into Utente values (2020-10-03, 'Cunico96', 'riccardo.cunico@gmail.it', 'conoMini');
-insert into Utente values (2018-12-12, 'Ciaone', 'patriza.cai@outlook.it', 'Pattyna');
+insert into Utente values ('2020-05-24', 'Polino08', 'paolo.lino@outlook.it', 'LinoPaolo08');
+insert into Utente values ('2019-01-12', 'MarcoMonte', 'marco.ricco@gmail.it', 'Cashinback');
+insert into Utente values ('2020-10-03', 'Cunico96', 'riccardo.cunico@gmail.it', 'conoMini');
+insert into Utente values ('2018-12-12', 'Ciaone', 'patriza.cai@outlook.it', 'Pattyna');
 
 -- Notizia ()
 insert into Notizia values ('corpo della Notizia 1', null, 'Jennifer ancora piu bella nel nuovo film', 'MarcoMonte', 2020-05-16);
 insert into Notizia values ('corpo della Notizia Parasite', null, 'Leo miglior attore del mondo', 'Cunico96', 2019-12-20);
-insert into Notizia values ('corpo della Notizia Nolan', null, 'Nolan miglior regista del 2017', , 2018-01-5);
+insert into Notizia values ('corpo della Notizia Nolan', null, 'Nolan miglior regista del 2017', null, 2018-01-5);
 insert into Notizia values ('corpo notizia su tarantino', null, 'Ad ogni film riesce a superarsi', 'Polino08', 2020-02-26);
 
 -- Star ()
@@ -66,9 +66,9 @@ insert into DirezioneContenuto values ('Quentin Tarantino', 1963-03-27, 'C era u
 insert into DirezioneContenuto values ('Albertino Sordi', 1992-08-15, 'Doolittle', 2020);
 
 -- Direzione Episodio()
-insert into DirezioneEpisodio values ('Jason Winer', 1975-06-21, 'Il lancio della zucca', 'Stagione 9', 'Modern family', 2018);
-insert into DirezioneEpisodio values ('Otto Bathurst', 1971-01-17, '15 milioni di celebrità', 'Stagione 1', 'Black Mirror', 2015);
-insert into DirezioneEpisodio values ('Jason Winer', 1975-06-21, 'Zitto e balla', 'Stagione 3', 'Black Mirror', 2017);
+insert into DirezioneEpisodio values ('Jason Winer', 1975-06-21, 'Il lancio della zucca', 'Stagione 9', 'Modern family', 2009);
+insert into DirezioneEpisodio values ('Otto Bathurst', 1971-01-17, '15 milioni di celebrità', 'Stagione 1', 'Black Mirror', 2013);
+insert into DirezioneEpisodio values ('Jason Winer', 1975-06-21, 'Zitto e balla', 'Stagione 3', 'Black Mirror', 2013);
 
 -- Preferisce()
 insert into Preferisce values ( 'paolo.lino@outlook.it', 'Black Mirro', 2013);
@@ -91,17 +91,17 @@ insert into Rilascio values ('Netflix', 'Beautifull woman', 2020);
 insert into Rilascio values ('Infinity', 'Beautifull woman', 2020);
 
 -- Trasmissione Film()
-insert into TrasmissioneFilm values ('FOX', 'Bad Boys for Life', 2009, 2020-03-11, 18:00);
-insert into TrasmissioneFilm values ('Italia 1', 'Beautifull woman', 2020, 2020-05-19, 21:00);
-insert into TrasmissioneFilm values ('Italia 1', 'C era una volta ad Hollywood', 2020, 2020-05-18, 21:00);
-insert into TrasmissioneFilm values ('Italia 1', 'Jojo Rabbit', 2020, 2020-05-17, 21:00);
+insert into TrasmissioneFilm values ('FOX', 'Bad Boys for Life', 2009, 2020-03-11, 1800);
+insert into TrasmissioneFilm values ('Italia 1', 'Beautifull woman', 2020, 2020-05-19, 2100);
+insert into TrasmissioneFilm values ('Italia 1', 'C era una volta ad Hollywood', 2020, 2020-05-18, 2100);
+insert into TrasmissioneFilm values ('Italia 1', 'Jojo Rabbit', 2020, 2020-05-17, 2100);
 
 -- Trasmissione Episodio()
-insert into TrasmissioneEpisodio values ('FOX', 'Ricordi pericolosi', 'Stagione 1', 'Black Mirror', 2013, 2020-01-15, 21:00);
-insert into TrasmissioneEpisodio values ('FOX', '15 milioni di celebrità', 'Stagione 1', 'Black Mirror', 2013, 2020-01-15, 23:00);
-insert into TrasmissioneEpisodio values ('Italia 1', '15 milioni di celebrità', 'Stagione 1', 'Black Mirror', 2013, 2020-01-15, 23:00);
+insert into TrasmissioneEpisodio values ('FOX', 'Ricordi pericolosi', 'Stagione 1', 'Black Mirror', 2013, 2020-01-15, 2100);
+insert into TrasmissioneEpisodio values ('FOX', '15 milioni di celebrità', 'Stagione 1', 'Black Mirror', 2013, 2020-01-15, 2300);
+insert into TrasmissioneEpisodio values ('Italia 1', '15 milioni di celebrità', 'Stagione 1', 'Black Mirror', 2013, 2020-01-15, 2300);
 
 -- Proiezione ()
-insert into Proiezione values ('C era una volta ad Hollywood', 2020, 'rione dei monti', 3, 10.50, 2020-01-10, 19:30);
-insert into Proiezione values ('Jojo Rabbit', 2020, 'piazza statuto', 5, 8.50, 2020-05-10, 21:30);
-insert into Proiezione values ('C era una volta ad Hollywood', 2020, 'via del parco', 3, 10.50, 2020-01-10, 19:30);
+insert into Proiezione values ('C era una volta ad Hollywood', 2020, 'rione dei monti', 3, 10.50, 2020-01-10, 1930);
+insert into Proiezione values ('Jojo Rabbit', 2020, 'piazza statuto', 5, 8.50, 2020-05-10, 2130);
+insert into Proiezione values ('C era una volta ad Hollywood', 2020, 'via del parco', 3, 10.50, 2020-01-10, 1930);
