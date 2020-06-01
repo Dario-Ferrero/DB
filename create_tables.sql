@@ -153,7 +153,7 @@ create table Votazione (
 	utente varchar(255),
 	contenuto varchar(255),
 	anno_contenuto smallint,
-	voto smallint,
+	voto smallint check (0 <= voto or voto <= 5),
 	primary key (utente, contenuto, anno_contenuto),
 	foreign key (utente) references Utente(indirizzo_mail)
 		on update cascade
