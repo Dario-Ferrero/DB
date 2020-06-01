@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-06-01T14:54:06.916Z" agent="5.0 (Windows)" etag="0hyPqOBiN0NYYlOsmfwo" version="13.1.11" type="github">
+<mxfile host="app.diagrams.net" modified="2020-06-01T15:07:31.202Z" agent="5.0 (Windows)" etag="Ik7dP1C5Ph7L3E3s7gQI" version="13.1.11" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="598" dy="339" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -768,7 +768,7 @@
         <mxCell id="xWWlcyMBw6Q8MvbSNtlc-26" value="(0,N)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="561.75" y="847.5" width="40" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="xWWlcyMBw6Q8MvbSNtlc-28" value="(1,N)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="xWWlcyMBw6Q8MvbSNtlc-28" value="(0,N)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="576.75" y="1042.75" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="xWWlcyMBw6Q8MvbSNtlc-29" value="(1, 1)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
@@ -799,7 +799,7 @@
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="xWWlcyMBw6Q8MvbSNtlc-43" value="(1,N)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="xWWlcyMBw6Q8MvbSNtlc-43" value="(0,N)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="835" y="952.5000000000001" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="xWWlcyMBw6Q8MvbSNtlc-48" value="&lt;div&gt;Riferimento&lt;/div&gt;&lt;div&gt;Contenuto&lt;br&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
