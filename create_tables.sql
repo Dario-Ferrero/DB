@@ -41,9 +41,23 @@ create table Contenuto (
 
 create table Cinema (
 	numero_telefono varchar(30) unique,
-	città varchar(255) not null,
+	città varchar(255),
 	nome varchar(255) not null,
-	indirizzo varchar(255) primary key
+	indirizzo varchar(255),
+	primary key (indirizzo, città)
+);
+
+create table Proiezione (
+	indirizzo_cinema varchar(255),
+	città_cinema varchar(255),
+	sala smallint,
+	data_proiezione date,
+	ora_proiezione time(0),
+	costo_biglietto decimal(4,2),
+	primary key (indirizzo_cinema, città_cinema, sala, data_proiezione, ora_proiezione),
+	foreign key (indirizzo_cinema, città_cinema) references Cinema(indirizzo, città)
+		on update cascade
+		on delete cascade
 );
 
 create table Episodio (
@@ -61,6 +75,17 @@ create table Episodio (
 create table Piattaforma (
 	sito_web varchar(255),
 	nome varchar(255) primary key
+);
+
+create table Votazione (
+	contenuto varchar(255),
+	anno_contenuto smallint,
+	timestamp_voto timestamp(0),
+	voto smallint check (0 <= voto or voto <= 5),
+	primary key (contenuto, anno_contenuto, timestamp_voto),
+	foreign key (contenuto, anno_contenuto) references Contenuto(titolo, anno)
+		on update cascade
+		on delete cascade
 );
 
 create table RiferimentoStar (
@@ -106,16 +131,16 @@ create table Recitazione (
 		on delete cascade
 );
 
-create table DirezioneContenuto (
+create table DirezioneFilm (
 	regista varchar(255),
 	data_nascita_regista date,
-	contenuto varchar(255),
-	anno_contenuto smallint,
-	primary key (regista, data_nascita_regista, contenuto, anno_contenuto),
+	film varchar(255),
+	anno_film smallint,
+	primary key (regista, data_nascita_regista, film, anno_film),
 	foreign key(regista, data_nascita_regista) references Star(nome_cognome, data_nascita)
 		on update cascade
-		on delete cascade, 
-	foreign key(contenuto, anno_contenuto) references Contenuto(titolo, anno)
+		on delete cascade,
+	foreign key(film, anno_film) references Contenuto(titolo, anno)
 		on update cascade
 		on delete cascade
 );
@@ -140,20 +165,6 @@ create table Preferisce (
 	utente varchar(255),
 	contenuto varchar(255),
 	anno_contenuto smallint,
-	primary key (utente, contenuto, anno_contenuto),
-	foreign key (utente) references Utente(indirizzo_mail)
-		on update cascade
-		on delete cascade,
-	foreign key (contenuto, anno_contenuto) references Contenuto(titolo, anno)
-		on update cascade
-		on delete cascade
-);
-
-create table Votazione (
-	utente varchar(255),
-	contenuto varchar(255),
-	anno_contenuto smallint,
-	voto smallint check (0 <= voto or voto <= 5),
 	primary key (utente, contenuto, anno_contenuto),
 	foreign key (utente) references Utente(indirizzo_mail)
 		on update cascade
@@ -208,20 +219,31 @@ create table TrasmissioneEpisodio (
 		on delete cascade
 );
 
-create table Proiezione (
+create table FilmProiettato (
 	film varchar(255),
 	anno_film smallint,
-	cinema varchar(255),
+	indirizzo_cinema varchar(255),
+	città_cinema varchar(255),
 	sala smallint,
-	costo_biglietto decimal(4,2),
 	data_proiezione date,
 	ora_proiezione time(0),
-	primary key (film, anno_film, cinema),
+	primary key (film, anno_film, indirizzo_cinema, città_cinema, sala, data_proiezione, ora_proiezione),
 	foreign key (film, anno_film) references Contenuto(titolo, anno)
 		on update cascade
-		on delete cascade,
-	foreign key (cinema) references Cinema(indirizzo)
-		on update cascade
+		on delete set null,
+	foreign key (indirizzo_cinema, città_cinema, sala, data_proiezione, ora_proiezione) references Proiezione(indirizzo_cinema, città_cinema, sala, data_proiezione, ora_proiezione)
+		on update cascade,
 		on delete cascade
 );
 
+create table UtenteVotante (
+	utente varchar(255),
+	timestamp_voto timestamp(0),
+	primary key (utente, timestamp_voto),
+	foreign key (utente) references Utente(indirizzo_mail)
+		on update cascade
+		on delete cascade,
+	foreign key (timestamp_voto) references Votazione(timestamp_voto)
+		on update cascade
+		on delete cascade
+);
