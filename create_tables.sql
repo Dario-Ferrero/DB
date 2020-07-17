@@ -9,14 +9,14 @@ create table Star (
 	foto bytea,
 	altezza decimal(3,2) not null,
 	luogo_di_nascita varchar(255) not null, 
-	data_nascita date, 
+	data_nascita date,
 	nome_cognome varchar(255),
-	biografia varchar(5000) not null, default ' ',
+	biografia varchar(5000) not null default '',
 	primary key (nome_cognome, data_nascita)
 );
 
 create table Notizia (
-	corpo varchar(5000),
+	corpo varchar(5000) not null,
 	foto bytea,
 	titolo varchar(255),
 	autore varchar(255) default 'redazione@comingsoon.it',
@@ -24,23 +24,23 @@ create table Notizia (
 	primary key (titolo, autore),
 	foreign key (autore) references Utente(indirizzo_mail)
 		on update cascade
-		on delete set default
+		on delete no action
 );
 
 create table Contenuto (
 	trama varchar(5000) not null,
 	paese varchar(255) not null,
 	genere varchar(255) not null,
-	distribuzione varchar(255),
+	distribuzione varchar(255) not null,
 	anno smallint,
 	titolo varchar(255),
-	voto_medio decimal(2,1) default 0,
+	voto_medio decimal(2,1) default 0 not null,
 	durata smallint,
 	primary key (titolo, anno)
 );
 
 create table Cinema (
-	numero_telefono varchar(30) unique,
+	numero_telefono varchar(30) unique not null,
 	città varchar(255),
 	nome varchar(255) not null,
 	indirizzo varchar(255),
@@ -53,7 +53,7 @@ create table Proiezione (
 	sala smallint,
 	data_proiezione date,
 	ora_proiezione time(0),
-	costo_biglietto decimal(4,2),
+	costo_biglietto decimal(4,2) not null,
 	primary key (indirizzo_cinema, città_cinema, sala, data_proiezione, ora_proiezione),
 	foreign key (indirizzo_cinema, città_cinema) references Cinema(indirizzo, città)
 		on update cascade
@@ -81,7 +81,7 @@ create table Votazione (
 	contenuto varchar(255),
 	anno_contenuto smallint,
 	timestamp_voto timestamp(0),
-	voto smallint check (0 <= voto or voto <= 5),
+	voto smallint check (0 <= voto or voto <= 5) default 0  not null,
 	primary key (contenuto, anno_contenuto, timestamp_voto),
 	foreign key (contenuto, anno_contenuto) references Contenuto(titolo, anno)
 		on update cascade
@@ -92,28 +92,28 @@ create table RiferimentoStar (
 	star varchar (255),
 	data_nascita_star date,
 	notizia varchar(255),
-	autore_notizia varchar(255),
+	autore_notizia varchar(255) default 'redazione@comingsoon.it',
 	primary key (star, data_nascita_star, notizia, autore_notizia),
 	foreign key (star, data_nascita_star) references Star(nome_cognome, data_nascita)
 		on update cascade
 		on delete cascade,
 	foreign key (notizia, autore_notizia) references Notizia(titolo, autore)
 		on update cascade
-		on delete cascade
+		on delete no action
 );
 
 create table RiferimentoContenuto (
 	notizia varchar(255),
-	autore_notizia varchar(255),
+	autore_notizia varchar(255) default 'redazione@comingsoon.it',
 	contenuto varchar(255),
 	anno_contenuto smallint,
 	primary key (notizia, autore_notizia, contenuto, anno_contenuto),
-	foreign key(notizia, autore_notizia) references Notizia(titolo, autore)
-		on update cascade
-		on delete cascade,
 	foreign key(contenuto, anno_contenuto) references Contenuto(titolo, anno)
 		on update cascade
-		on delete cascade
+		on delete cascade,
+	foreign key (notizia, autore_notizia) references Notizia(titolo, autore)
+		on update cascade
+		on delete no action
 );
 
 create table Recitazione (
@@ -232,18 +232,20 @@ create table FilmProiettato (
 		on update cascade
 		on delete set null,
 	foreign key (indirizzo_cinema, città_cinema, sala, data_proiezione, ora_proiezione) references Proiezione(indirizzo_cinema, città_cinema, sala, data_proiezione, ora_proiezione)
-		on update cascade,
+		on update cascade
 		on delete cascade
 );
 
 create table UtenteVotante (
 	utente varchar(255),
 	timestamp_voto timestamp(0),
-	primary key (utente, timestamp_voto),
+	contenuto varchar(255),
+	anno_contenuto smallint,
+	primary key (utente, timestamp_voto, contenuto, anno_contenuto),
 	foreign key (utente) references Utente(indirizzo_mail)
 		on update cascade
 		on delete cascade,
-	foreign key (timestamp_voto) references Votazione(timestamp_voto)
+	foreign key (timestamp_voto, contenuto, anno_contenuto) references Votazione(timestamp_voto, contenuto, anno_contenuto)
 		on update cascade
 		on delete cascade
 );
