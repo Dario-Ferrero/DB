@@ -1,13 +1,13 @@
 -- DA RISPETTARE ORDINE DI DEFINIZIONE (in create table)
 -- Contenuto (trama, paese, genere, distribuzione, anno, titolo, voto_medio, durata)
-insert into Contenuto values ('Trama di Bad Boys for Life', 'USA', 'Azione', 'Sony Pictures Italia / Warner Bros. Pictures Italia', 2020, 'Bad Boys for Life', null, 123);
-insert into Contenuto values ('Trama di Sonic - Il Film', 'Giappone, USA, Canada', 'Azione, Animazione, Avventura', 'Paramount Pictures', 2020, 'Sonic - Il Film', null, 100);
-insert into Contenuto values ('Trama di Jojo Rabbit', 'Germania, USA', 'Commedia, Drammatico', 'Walt Disney Italia / 20th Century Fox', 2020, 'Jojo Rabbit', null, 108);
-insert into Contenuto values ('Trama di Doolittle', 'USA', 'Commedia', 'Universal Pictures', 2020, 'Doolittle', null, 106);
-insert into Contenuto values ('Trama film di Beautifull woman', 'USA', 'Commedia', 'Universal Pictures', 2020, 'Beautifull woman', null, 112);
-insert into Contenuto values ('Trama di c era una volta', 'USA', 'Commedia', 'Universal Pictures', 2020, 'C\'era una volta ad Hollywood', null, 136);
-insert into Contenuto values ('Trama Black Mirror', 'USA', 'Drammatico', 'Netflix', 2013, 'Black Mirror', null, null);
-insert into Contenuto values ('Trama Modern family', 'USA', 'Commedia', 'FOX', 2009, 'Modern family', null, null);
+insert into Contenuto values ('Trama di Bad Boys for Life', 'USA', 'Azione', 'Sony Pictures Italia / Warner Bros. Pictures Italia', 2020, 'Bad Boys for Life', 0, 123);
+insert into Contenuto values ('Trama di Sonic - Il Film', 'Giappone, USA, Canada', 'Azione, Animazione, Avventura', 'Paramount Pictures', 2020, 'Sonic - Il Film', 0, 100);
+insert into Contenuto values ('Trama di Jojo Rabbit', 'Germania, USA', 'Commedia, Drammatico', 'Walt Disney Italia / 20th Century Fox', 2020, 'Jojo Rabbit', 0, 108);
+insert into Contenuto values ('Trama di Doolittle', 'USA', 'Commedia', 'Universal Pictures', 2020, 'Doolittle', 0, 106);
+insert into Contenuto values ('Trama film di Beautifull woman', 'USA', 'Commedia', 'Universal Pictures', 2020, 'Beautifull woman', 0, 112);
+insert into Contenuto values ('Trama di c era una volta', 'USA', 'Commedia', 'Universal Pictures', 2020, 'C\'era una volta ad Hollywood', 0, 136);
+insert into Contenuto values ('Trama Black Mirror', 'USA', 'Drammatico', 'Netflix', 2013, 'Black Mirror', 0, 1300);
+insert into Contenuto values ('Trama Modern family', 'USA', 'Commedia', 'FOX', 2009, 'Modern family', 0, 1100);
 
 -- Episodio ()
 insert into Episodio values (62, '15 milioni di celebrità', 'Stagione 1', 'Black Mirror', 2013);
@@ -52,8 +52,8 @@ insert into Proiezione values ('via del parco', 'Torino', 'C\'era una volta ad H
 insert into Piattaforma values ('www.netflix.it', 'Netflix');
 insert into Piattaforma values ('www.amazonprimevideo.com', 'Prime video');
 insert into Piattaforma values ('www.infinity.it', 'Infinity');
-insert into Piattaforma values ( null, 'Italia 1');
-insert into Piattaforma values ( null, 'FOX');
+insert into Piattaforma values ('null', 'Italia 1');
+insert into Piattaforma values ('null', 'FOX');
 
 -- Votazione() 
 insert into Votazione values ('Modern family', 2009, '2012-12-21 15:30:00', 1);

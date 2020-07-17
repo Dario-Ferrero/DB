@@ -7,11 +7,11 @@ create table Utente (
 
 create table Star (
 	foto bytea,
-	altezza decimal(3,2),
-	luogo_di_nascita varchar(255), 
+	altezza decimal(3,2) not null,
+	luogo_di_nascita varchar(255) not null, 
 	data_nascita date, 
 	nome_cognome varchar(255),
-	biografia varchar(5000),
+	biografia varchar(5000) not null, default ' ',
 	primary key (nome_cognome, data_nascita)
 );
 
@@ -28,13 +28,13 @@ create table Notizia (
 );
 
 create table Contenuto (
-	trama varchar(5000),
-	paese varchar(255),
-	genere varchar(255),
+	trama varchar(5000) not null,
+	paese varchar(255) not null,
+	genere varchar(255) not null,
 	distribuzione varchar(255),
 	anno smallint,
 	titolo varchar(255),
-	voto_medio decimal(2,1),
+	voto_medio decimal(2,1) default 0,
 	durata smallint,
 	primary key (titolo, anno)
 );
@@ -61,7 +61,7 @@ create table Proiezione (
 );
 
 create table Episodio (
-	durata smallint,
+	durata smallint not null,
 	titolo varchar(255),
 	stagione varchar(255),
 	serie varchar(255),
@@ -121,7 +121,7 @@ create table Recitazione (
 	data_nascita_attore date,
 	contenuto varchar(255),
 	anno_contenuto smallint,
-	ruolo varchar(255),
+	ruolo varchar(255) not null,
 	primary key (attore, data_nascita_attore, contenuto, anno_contenuto),
 	foreign key(attore, data_nascita_attore) references Star(nome_cognome, data_nascita)
 		on update cascade
@@ -191,8 +191,8 @@ create table TrasmissioneFilm (
 	piattaforma varchar (255),
 	film varchar(255),
 	anno_film smallint,
-	data_trasmissione date,
-	ora_trasmissione time(0),
+	data_trasmissione date not null,
+	ora_trasmissione time(0) not null,
 	primary key (piattaforma, film, anno_film),
 	foreign key (piattaforma) references Piattaforma(nome)
 		on update cascade
@@ -208,8 +208,8 @@ create table TrasmissioneEpisodio (
 	stagione varchar(255),
 	serie varchar(255),
 	anno_serie smallint,
-	data_trasmissione date,
-	ora_trasmissione time(0),
+	data_trasmissione date not null,
+	ora_trasmissione time(0) not null,
 	primary key (episodio, stagione, serie, anno_serie, piattaforma),
 	foreign key (piattaforma) references Piattaforma(nome)
 		on update cascade
