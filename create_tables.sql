@@ -3,7 +3,6 @@ create table Utente (
 	Nome_Utente varchar(50) unique not null,
 	indirizzo_mail varchar(255) primary key,
 	password varchar(255) not null
-	
 );
 
 create table Star (
@@ -19,13 +18,13 @@ create table Star (
 create table Notizia (
 	corpo varchar(5000) not null,
 	foto bytea,
-	titolo varchar(255) unique,
+	titolo varchar(255),
 	autore varchar(255) default 'redazione@comingsoon.it',
 	data_pubblicazione date not null,
 	primary key (titolo, autore),
 	foreign key (autore) references Utente(indirizzo_mail)
 		on update cascade
-		on delete cascade
+		on delete no action
 );
 
 create table Contenuto (
@@ -92,7 +91,7 @@ create table Votazione (
 create table RiferimentoStar (
 	star varchar (255),
 	data_nascita_star date,
-	notizia varchar(255) unique,
+	notizia varchar(255),
 	autore_notizia varchar(255) default 'redazione@comingsoon.it',
 	primary key (star, data_nascita_star, notizia, autore_notizia),
 	foreign key (star, data_nascita_star) references Star(nome_cognome, data_nascita)
@@ -100,11 +99,11 @@ create table RiferimentoStar (
 		on delete cascade,
 	foreign key (notizia, autore_notizia) references Notizia(titolo, autore)
 		on update cascade
-		on delete cascade
+		on delete no action
 );
 
 create table RiferimentoContenuto (
-	notizia varchar(255) unique,
+	notizia varchar(255),
 	autore_notizia varchar(255) default 'redazione@comingsoon.it',
 	contenuto varchar(255),
 	anno_contenuto smallint,
@@ -114,7 +113,7 @@ create table RiferimentoContenuto (
 		on delete cascade,
 	foreign key (notizia, autore_notizia) references Notizia(titolo, autore)
 		on update cascade
-		on delete cascade
+		on delete no action
 );
 
 create table Recitazione (

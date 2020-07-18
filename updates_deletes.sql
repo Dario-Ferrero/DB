@@ -2,8 +2,8 @@
 
 update Contenuto 
 set distribuzione = 'Warner Bros.',
-	genere = 'Thriller',
-	paese = 'Germania'
+set genere = 'Thriller',
+set paese = 'Germania'
 where titolo = 'Jojo Rabbit' and anno = 2020;
 
 select * from Contenuto
@@ -13,10 +13,10 @@ where titolo = 'Jojo Rabbit' and anno = 2020
 -- Verifica vincoli di foreign key di Notizia
 
 delete from Utente where indirizzo_mail = 'marco.ricco@gmail.it';
--- (non dovrebbe restituire nulla)
+
 select autore from Notizia
 where titolo = 'Jennifer ancora piu bella nel nuovo film'
-  and autore = 'marco.ricco@gmail.it';
+  and autore = 'redazione@comingsoon.it';
   
 -- Verifica vincoli di foreign key di Votazione
 
