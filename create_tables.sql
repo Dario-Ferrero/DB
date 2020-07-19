@@ -1,3 +1,7 @@
+/*
+ * DDL di creazione del database
+ */
+
 create table Utente (
 	data_inizio date,
 	Nome_Utente varchar(50) unique not null,

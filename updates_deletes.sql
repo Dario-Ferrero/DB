@@ -1,3 +1,7 @@
+/*
+ * Operazioni di modifica e cancellazione per verificare i vincoli
+ */
+
 -- Verifica modifica di Contenuto
 
 update Contenuto 
